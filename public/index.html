@@ -69,6 +69,16 @@
     <div id="toast" role="status"></div>
   </main>
   <script src="/socket.io/socket.io.js"></script>
-  <script src="app.js"></script>
+    <script src="app.js"></script>
+
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("/sw.js");
+      });
+    }
+  </script>
+</body>
+</html>
 </body>
 </html>
