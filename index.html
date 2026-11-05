@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>IPL Mega Auction | Multiplayer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="ball">●</span><div><b>IPL MEGA AUCTION</b><small>2-PLAYER FRANCHISE BATTLE</small></div></div>
+    <div class="live-pill"><i></i> REAL-TIME AUCTION</div>
+  </header>
+
+  <main>
+    <section id="lobby" class="panel lobby">
+      <div class="eyebrow">BUILD YOUR DYNASTY</div>
+      <h1>The bidding war<br><span>starts here.</span></h1>
+      <p class="muted">Create a private room or join your friend's room. Each franchise gets a ₹120 Cr purse.</p>
+      <label>Your franchise</label>
+      <select id="franchise">
+        <option>CSK</option><option>MI</option><option>RCB</option><option>KKR</option><option>RR</option>
+        <option>SRH</option><option>DC</option><option>PBKS</option><option>GT</option><option>LSG</option>
+      </select>
+      <div class="actions">
+        <button id="createBtn" class="primary">Create room</button>
+        <div class="join-row"><input id="roomCode" maxlength="6" placeholder="ROOM CODE"><button id="joinBtn" class="secondary">Join room</button></div>
+      </div>
+      <div id="roomInfo" class="room-info hidden"></div>
+      <button id="startBtn" class="primary hidden">Start mega auction</button>
+      <p class="tiny">Demo player pool uses fictional names. Room data is held in server memory.</p>
+    </section>
+
+    <section id="auction" class="hidden">
+      <div class="auction-head">
+        <div><div class="eyebrow">LIVE AUCTION ROOM <b id="roomLabel"></b></div><h2 id="auctionTitle">Waiting for auction…</h2></div>
+        <div class="counter"><small>PLAYERS REMAINING</small><b id="remaining">20</b></div>
+      </div>
+      <div class="teams" id="teams"></div>
+      <div class="main-grid">
+        <section class="player-card panel">
+          <div class="player-top"><span class="eyebrow">NOW ON THE BLOCK</span><span id="playerNumber" class="number">01 / 20</span></div>
+          <div class="player-avatar" id="avatar">🏏</div>
+          <h2 id="playerName">Player name</h2>
+          <div class="tags"><span id="playerRole"></span><span id="playerCountry"></span></div>
+          <div class="base-line">BASE PRICE <b id="basePrice">₹2.00 Cr</b></div>
+          <div class="bid-box">
+            <small>CURRENT HIGHEST BID</small>
+            <strong id="currentBid">₹0.00 <em>Cr</em></strong>
+            <p id="bidLeader">No bids yet</p>
+          </div>
+          <div class="bid-controls">
+            <button id="bidBtn" class="primary">Bid next increment</button>
+            <button id="closeBtn" class="secondary">Close bidding</button>
+          </div>
+          <p class="tiny">Minimum increment: ₹0.25 Cr. Only the room creator controls the auction flow.</p>
+        </section>
+        <aside class="panel side-panel">
+          <h3>Your franchise</h3>
+          <div class="my-team" id="myTeam">—</div>
+          <div class="stat-row"><span>Remaining purse</span><b id="myPurse">₹120.00 Cr</b></div>
+          <div class="stat-row"><span>Squad size</span><b id="mySquadCount">0 / 25</b></div>
+          <div class="stat-row"><span>Overseas players</span><b id="myOverseas">0 / 8</b></div>
+          <hr><h3>Your squad</h3><div id="squad" class="squad"><p class="muted">No players bought yet.</p></div>
+          <hr><h3>Recent results</h3><div id="log" class="log"><p class="muted">No completed bids yet.</p></div>
+        </aside>
+      </div>
+    </section>
+    <div id="toast" role="status"></div>
+  </main>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
