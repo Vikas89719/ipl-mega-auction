@@ -1,0 +1,11 @@
+{
+  "name": "IPL Mega Auction",
+  "short_name": "IPL Auction",
+  "description": "Online multiplayer IPL Mega Auction game",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#101522",
+  "theme_color": "#101522"
+}
